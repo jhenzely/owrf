@@ -16,4 +16,4 @@ while true; do
   sleep 2
 done
 
-uci show wireless | grep WRT_1 | grep -o \\[[0-9]\]
+uci show wireless | grep $rp_name | grep -o \\[[0-9]\]
