@@ -10,8 +10,8 @@ while true; do
   fi
   
   if [ see_it -ge 5 ]; then
-    
+    uci set wireless.@wifi-iface[0].disabled=1; wifi; ## here instead of zero comes the exact value
   fi
-  
-  
+done
+
 uci show wireless | grep WRT_1 | grep -o \\[[0-9]\]
