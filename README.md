@@ -3,3 +3,5 @@ OpenWRT Wireless Repeater Fix: Is workaround for dropping wireless connection wh
 
 I was inspired by script on the end of page (Link), but I decided to make it more "light".
 https://wiki.openwrt.org/doc/recipes/ap_sta
+
+Main difference is, that my script is not copy-pasting (possibly) large configs.
