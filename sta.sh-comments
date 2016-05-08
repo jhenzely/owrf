@@ -1,0 +1,16 @@
+#!/bin/sh
+sleep 7 ## Wait for everything to load (increase if slow CPU)
+
+uci set wireless.@wifi-iface[0].disabled=0 ## Enable repeated network at start (after boot)
+uci commit wireless ## Write config (repeated wireless network enabled)
+
+sleep 10            ## Wait for everything to load (increase if slow CPU)
+
+while true ; do     ## Endless loop
+	if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then   ## WHen "ESSID: unknown", then connection then connection with
+	                                                          ## repeated network was terminated. Hurry !! It's time to act !
+	uci set wireless.@wifi-iface[0].disabled=1; wifi; exit 0  ## "Disable" the repeated network, our work is done,
+	                                                          ## end the script
+	fi
+	sleep 1 ## Checking interval (increase if slow CPU)
+done
