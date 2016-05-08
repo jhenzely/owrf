@@ -1,4 +1,6 @@
 uci set wireless.@wifi-iface[0].disabled=0
+uci commit wireless
+sleep 10
 
 while true ; do
 	if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then
