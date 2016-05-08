@@ -1,1 +1,5 @@
+## Just a mess, my ideas in this file
+
+$see_it=0
+
 uci show wireless | grep WRT_1 | grep -o \\[[0-9]\]
