@@ -1,5 +1,17 @@
 ## Just a mess, my ideas in this file
 
 $see_it=0
+$rp_name=<name_of_repeated_network>
 
+while true; do
+  sc_out=$(iwinfo wlan0 scan | grep -c -o $rp_name)
+  if [ $sc_out -ge 1 ];then
+    see_it=$((see_it+1))
+  fi
+  
+  if [ see_it -ge 5 ]; then
+    
+  fi
+  
+  
 uci show wireless | grep WRT_1 | grep -o \\[[0-9]\]
