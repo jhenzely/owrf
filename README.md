@@ -5,7 +5,3 @@ I was inspired by script on the end of page (Link), but I decided to make it mor
 https://wiki.openwrt.org/doc/recipes/ap_sta
 
 Main difference is, that my script is not copy-pasting (possibly) large configs.
-
-## More information
-
-### Te
