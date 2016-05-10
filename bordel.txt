@@ -1,5 +1,4 @@
 ## Just a mess, my ideas in this file
-
 $see_it=0
 $rp_name=<name_of_repeated_network>
 
@@ -8,15 +7,19 @@ while true; do
   if [ $sc_out -ge 1 ];then
     see_it=$((see_it+1))
   fi
-  
   if [ see_it -ge 5 ]; then
     uci set wireless.@wifi-iface[0].disabled=1; wifi; ## here instead of zero comes the exact value
   fi
-  
   sleep 2
 done
-
 uci show wireless | grep $rp_name | grep -o \\[[0-9]\]
 
 ##### It will be better to simply disable all other networks which are not marked as 'ap'
 ## uci commit should be avoided in order to save lifespan of NOR Flash mem.
+
+wireless modes:
+ap, sta, adhoc, wds, monitor, mesh
+
+Get wifi-iface ID from any config option:
+uci show wireless | grep ap/sta/... | grep -o \\[[0-9]\]
+uci show wireless | grep <any_config_option> | grep -o \\[[0-9]\]
