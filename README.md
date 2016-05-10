@@ -15,10 +15,10 @@ When using OpenWrt device as a repeater, repeated network set in 'sta' mode and 
 Yes, of course if repeated network is simply unavailable, why to "see" my OpenWrt device ?
 The answer is simple, imagine, that You are somewhere in hotel with tablet, or netbook without ethernet NIC.
 This situation could be described in one word: Disaster
+OpenWrt device is simply not accessible and there is no possibility to switch to another repeated network.
 
 ### My simple script
 To avoid this in the future, I wrote simple script. It works for me.
 
 ### This repo
 I think it may be also useful also for someone else.
-
