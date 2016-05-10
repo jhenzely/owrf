@@ -40,3 +40,6 @@ Focus on pre-longing lifespan, do not uci commit
 ### Add this script to official OpenWrt
 There is a lot of work to do.
 ...maybe one day :))
+
+### Issues
+Please note, that this project is still in early beta stage. But if You see some serious bugs in code for a long time, feel free to report it ASAP.
