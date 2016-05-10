@@ -17,3 +17,6 @@ while true; do
 done
 
 uci show wireless | grep $rp_name | grep -o \\[[0-9]\]
+
+##### It will be better to simply disable all other networks which are not marked as 'ap'
+## uci commit should be avoided in order to save lifespan of NOR Flash mem.
