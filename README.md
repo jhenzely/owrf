@@ -26,7 +26,7 @@ I think it may be also useful also for someone else.
 ## To do
 
 ### Make script more "inteligent"
-Checking wireless config, gathering current status, testing input values.
+Checking wireless config, gathering current values, testing input values.
 
 ### Chk if repeated network is available again
 Do it fast, on-the-fly, seamless, without reboot.
