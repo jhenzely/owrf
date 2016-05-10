@@ -29,7 +29,7 @@ I think it may be also useful also for someone else.
 Checking wireless config, gathering current status, testing input values.
 
 ### Chk if repeated network is available again
-Do it on-the-fly, seamless, without reboot.
+Do it fast, on-the-fly, seamless, without reboot.
 
 ### Script optimization
 Focus on minimizing script size and speed
