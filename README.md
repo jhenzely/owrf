@@ -4,7 +4,7 @@ OpenWRT Wireless Repeater Fix (OWRF): Is workaround for dropping wireless connec
 I was inspired by script on the end of page (Link), but I decided to make it more "light".
 https://wiki.openwrt.org/doc/recipes/ap_sta
 
-Main difference is, that my script is not copy-pasting (possibly) large configs.
+Main difference is, that my script is not copy-pasting (possibly) large configs which is wasting NOR Flash lifespan.
 
 ## More info
 
@@ -22,3 +22,21 @@ To avoid this in the future, I wrote simple script. It works for me.
 
 ### This repo
 I think it may be also useful also for someone else.
+
+## To do
+
+### Make script more "inteligent"
+Checking wireless config, gathering current status, testing input values.
+
+### Chk if repeated network is available again
+Do it on-the-fly, seamless, without reboot.
+
+### Script optimization
+Focus on minimizing script size and speed
+
+### Avoid writing to NOR Flash
+Focus on pre-longing lifespan, do not uci commit
+
+### Add this script to official OpenWrt
+There is a lot of work to do.
+...maybe one day :))
