@@ -32,7 +32,8 @@ Checking wireless config, gathering current values, testing input values.
 Do it fast, on-the-fly, seamless, without reboot.
 
 ### Script optimization
-Focus on minimizing script size and speed
+Focus on minimizing script size and complexity.
+But do not apply "KISS" principle !! It must be simple, but not stupid !!
 
 ### Avoid writing to NOR Flash
 Focus on pre-longing lifespan, do not uci commit
