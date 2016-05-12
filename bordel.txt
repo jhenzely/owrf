@@ -25,4 +25,11 @@ ap, sta, adhoc, wds, monitor, mesh
 ## Get wifi-iface ID from any config option:
 uci show wireless | grep ap/sta/... | grep -o \\[[0-9]\]
 uci show wireless | grep <any_config_option> | grep -o \\[[0-9]\]
+uci show wireless | egrep "(sta|ap)" | grep -o \\[[0-9]\]
 
+stas=$(uci show wireless | grep "sta" | grep -o \\[[0-9]\])
+
+i=0
+for i in $stas ; do
+  uci set wireless.@wifi-iface[$i].disabled=1
+done
