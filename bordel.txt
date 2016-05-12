@@ -14,12 +14,15 @@ while true; do
 done
 uci show wireless | grep $rp_name | grep -o \\[[0-9]\]
 
+___----___ --Deprecated
+
 ##### It will be better to simply disable all other networks which are not marked as 'ap'
 ## uci commit should be avoided in order to save lifespan of NOR Flash mem.
 
 wireless modes:
 ap, sta, adhoc, wds, monitor, mesh
 
-Get wifi-iface ID from any config option:
+## Get wifi-iface ID from any config option:
 uci show wireless | grep ap/sta/... | grep -o \\[[0-9]\]
 uci show wireless | grep <any_config_option> | grep -o \\[[0-9]\]
+
