@@ -1,4 +1,7 @@
 ## Untested
+## Get SSID from ID
+uci show wireless | egrep "\.ssid" | grep -i "\[0\]" | cut -d '=' -f 2
+
 
 #!/bin/sh
 stas=$(uci show wireless | grep "sta" | grep -o \\[[0-9]\])
