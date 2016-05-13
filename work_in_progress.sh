@@ -2,7 +2,10 @@
 ## Get SSID from ID
 uci show wireless | egrep "\.ssid" | grep -i "\[0\]" | cut -d '=' -f 2
 ##show SSIDs, should chk. for amplitude, min. -76 dBm
-iwinfo phy0 scan | grep "ESSID:" | cut -d '"' -f 2
+ssids=$(iwinfo phy0 scan | grep "ESSID:" | cut -d '"' -f 2)
+
+while true ; do
+  if 
 
 #!/bin/sh
 stas=$(uci show wireless | grep "sta" | grep -o \\[[0-9]\])
