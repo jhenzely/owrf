@@ -1,0 +1,1 @@
+/bin/sh /etc/config/sta.sh & > /dev/null 2>&1
