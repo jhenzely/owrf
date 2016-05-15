@@ -1,6 +1,5 @@
 #!/bin/sh
-
-sleep 7
+sleep 5
 
 stas=""
 stas=$(uci show wireless | grep "sta" | grep -o \[0-9])
