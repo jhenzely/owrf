@@ -8,8 +8,7 @@ sleep 5
 kill_stas ()
 {
  for i in $stas ; do
-   uci set wireless.@wifi-iface[$i].disabled=1
-   wifi
+   uci set wireless.@wifi-iface[$i].disabled=1; wifi
  done
 }
 
