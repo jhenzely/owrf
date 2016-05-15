@@ -10,7 +10,7 @@ opkg install iwinfo > /dev/null 2>&1
 echo "Installing 'iwinfo'"
 wget https://raw.githubusercontent.com/jhenzely/owrf/master/sta.sh --output-document=/etc/config/sta.sh > /dev/null 2>&1
 echo "Downloading sta.sh"
-sed -i '/bin/sh /etc/config/sta.sh & > /dev/null 2>&1' /etc/rc.local
+sed -i '1i /bin/sh /etc/config/sta.sh & > /dev/null 2>&1' /etc/rc.local
 echo "Adding script to start after boot"
 
 chmod 755 /etc/config/sta.sh && echo "sta.sh O.K" || echo "Adding sta.sh FAILED" ; exit 1
