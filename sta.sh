@@ -17,6 +17,6 @@ kill_stas ()
 while true ; do
  if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then
    kill_stas ; wifi; exit 0
-   fi
-   sleep 3 
+ fi
+ sleep 3 
 done
