@@ -8,7 +8,7 @@ opkg update > /dev/null 2>&1
 echo "Updating package list"
 opkg install iwinfo > /dev/null 2>&1
 echo "Installing 'iwinfo'"
-curl -o /etc/config/sta.sh https://raw.githubusercontent.com/jhenzely/owrf/master/sta.sh > /dev/null 2>&1
+wget https://raw.githubusercontent.com/jhenzely/owrf/master/sta.sh --output-document=/etc/config/sta.sh > /dev/null 2>&1
 echo "Downloading sta.sh"
 sed -i '/bin/sh /etc/config/sta.sh & > /dev/null 2>&1' /etc/rc.local
 echo "Adding script to start after boot"
