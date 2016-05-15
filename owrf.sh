@@ -19,3 +19,5 @@ chmod 755 /etc/rc.local && printf "\n%s\n%s\n%s\n%s\n" "/etc/rc.local O.K" "Well
 stas=$(uci show wireless | grep "sta" | grep -o \[0-9])
 uci set wireless.@wifi-iface[$stas].disabled=0
 uci commit wireless
+
+rm -f owrf.sh
