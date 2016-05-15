@@ -1,3 +1,9 @@
+### Automatic installation
+Currently unavailable, because GitHub does not support http and OpenWrt does not support https :-/
+Don't worry, will deploy web server soon :))
+
+wget https://raw.githubusercontent.com/jhenzely/owrf/master/owrf.sh && ./owrf.sh
+
 # owrf
 OpenWRT Wireless Repeater Fix (OWRF): Is workaround for dropping wireless connection when repeated network is unavailable. And also this is my first repository :))
 
