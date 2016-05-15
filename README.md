@@ -1,5 +1,5 @@
 ### Automatic installation
-Just run owrf.sh
+Just dload && run owrf.sh
 
 # owrf
 OpenWRT Wireless Repeater Fix (OWRF): Is workaround for dropping wireless connection when repeated network is unavailable. And also this is my first repository :))
