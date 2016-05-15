@@ -1,5 +1,5 @@
 ### Automatic installation
-Currently unavailable, because GitHub does not support http and OpenWrt does not support https :-/
+Currently unavailable, because GitHub does not support http and wget in OpenWrt does not support https :-/ Curl with SSL support is too heavy for OpenWrt I think.
 <br>Don't worry, I will be deploying one web server soon :))
 
 wget https://raw.githubusercontent.com/jhenzely/owrf/master/owrf.sh && ./owrf.sh
