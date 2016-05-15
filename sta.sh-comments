@@ -1,16 +1,23 @@
 #!/bin/sh
-sleep 7 ## Wait for everything to load (increase if slow CPU)
+sleep 5		## Wait for everything to load
 
-uci set wireless.@wifi-iface[0].disabled=0 ## Enable repeated network at start (after boot)
-uci commit wireless ## Write config (repeated wireless network enabled)
+stas=""		## Clear variable
+stas=$(uci show wireless | grep "sta" | grep -o \[0-9])		## Saves stas IDs to variable
+uci set wireless.@wifi-iface[$stas].disabled=0; wifi 		## Enable all stas
+sleep 5		## Wait for everything to load
 
-sleep 7            ## Wait for everything to load (increase if slow CPU)
+kill_stas () ## Function for killing stas
+{
+ for i in $stas ; do
+   uci set wireless.@wifi-iface[$i].disabled=1; wifi	## Disable all stas
+ done
+}
 
-while true ; do     ## Endless loop
-	if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then   ## WHen "ESSID: unknown", then connection then connection with
-	                                                          ## repeated network was terminated. Hurry !! It's time to act !
-	uci set wireless.@wifi-iface[0].disabled=1; wifi; exit 0  ## "Disable" the repeated network, our work is done,
-	                                                          ## end the script
-	fi
-	sleep 3 ## Checking interval (increase if slow CPU)
+while true ; do
+ if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then  ## WHen "ESSID: unknown", then connection then connection with
+ 														  ## repeated network was terminated. Hurry !! It's time to act !
+   kill_stas ; wifi; exit 0	  ## "Disable" the repeated network, our work is done,
+                              ## end the script
+ fi
+ sleep 3 	## Check status every three seconds
 done
