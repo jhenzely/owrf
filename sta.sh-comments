@@ -3,7 +3,6 @@ sleep 5		## Wait for everything to load
 
 stas=""		## Clear variable
 stas=$(uci show wireless | grep "sta" | grep -o \[0-9])		## Saves stas IDs to variable
-uci set wireless.@wifi-iface[$stas].disabled=0; wifi 		## Enable all stas
 sleep 5		## Wait for everything to load
 
 kill_stas () ## Function for killing stas
