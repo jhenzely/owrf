@@ -14,7 +14,7 @@ kill_stas () ## Function for killing stas
 }
 
 while true ; do
- if [ $(iwinfo | grep -c "ESSID: unknown") -ge 0 ]; then  ## WHen "ESSID: unknown", then connection then connection with
+ if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then  ## WHen "ESSID: unknown", then connection then connection with
                                                           ## repeated network was terminated. Hurry !! It's time to act !
    kill_stas ; wifi; exit 0	  ## "Disable" the repeated network, our work is done,
                               ## end the script
