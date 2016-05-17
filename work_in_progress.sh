@@ -28,3 +28,11 @@ done
 }
 
 iwlist scan | grep
+
+save_ssids ()
+{
+ for i in $stas ; do
+   names=$names" "$(uci show wireless | egrep "\.ssid" | grep -i "\[$i\]" | cut -d '=' -f 2)
+done
+}
+
