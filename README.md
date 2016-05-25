@@ -34,7 +34,7 @@ I think it may be also useful also for someone else.
 ### Make script more "inteligent"
 Checking wireless config, gathering current values, testing input values.
 
-### Chk if repeated network is available again
+### Chk if repeated network is available again --Work in Progress
 Do it fast, on-the-fly, seamless, without reboot.
 
 ### Script optimization
