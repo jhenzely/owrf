@@ -33,3 +33,5 @@ i=0
 for i in $stas ; do
   uci set wireless.@wifi-iface[$i].disabled=1
 done
+
+grep -E -o -c "WRT_1|Cell"
