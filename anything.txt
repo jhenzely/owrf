@@ -28,6 +28,8 @@ uci show wireless | grep <any_config_option> | grep -o \\[[0-9]\]
 uci show wireless | egrep "(sta|ap)" | grep -o \\[[0-9]\]
 uci show wireless | egrep "\.ssid" | egrep -o "\[2\]"
 
+uci show wireless | grep "WRT_1" | grep -E -o "\[([0-9])\]"
+
 stas=$(uci show wireless | grep "sta" | grep -o \\[[0-9]\])
 
 i=0
