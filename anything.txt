@@ -19,18 +19,12 @@ ___----___ --Deprecated
 ##### It will be better to simply disable all other networks which are not marked as 'ap'
 ## uci commit should be avoided in order to save lifespan of NOR Flash mem.
 
-wireless modes:
-ap, sta, adhoc, wds, monitor, mesh
-
 ## Get wifi-iface ID from any config option:
-uci show wireless | grep ap/sta/... | grep -o \\[[0-9]\]
 uci show wireless | grep <any_config_option> | grep -o \\[[0-9]\]
 uci show wireless | egrep "(sta|ap)" | grep -o \\[[0-9]\]
 uci show wireless | egrep "\.ssid" | egrep -o "\[2\]"
 
-uci show wireless | grep "WRT_1" | grep -E -o "\[([0-9])\]"
-
-stas=$(uci show wireless | grep "sta" | grep -o \\[[0-9]\])
+uci show wireless | grep "<network_name>" | grep -E -o "\[([0-9])\]" | grep -o "[[:digit:]]"
 
 i=0
 for i in $stas ; do
