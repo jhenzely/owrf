@@ -14,13 +14,10 @@ while true; do
 done
 uci show wireless | grep $rp_name | grep -o \\[[0-9]\]
 
-___----___ --Deprecated
-
 ##### It will be better to simply disable all other networks which are not marked as 'ap'
 ## uci commit should be avoided in order to save lifespan of NOR Flash mem.
 
 ## Get wifi-iface ID from any config option:
-uci show wireless | grep <any_config_option> | grep -o \\[[0-9]\]
 uci show wireless | egrep "(sta|ap)" | grep -o \\[[0-9]\]
 uci show wireless | egrep "\.ssid" | egrep -o "\[2\]"
 
@@ -31,4 +28,4 @@ for i in $stas ; do
   uci set wireless.@wifi-iface[$i].disabled=1
 done
 
-grep -E -o -c "WRT_1|Cell"
+iwinfo phy0 scan | grep -E "ESSID:|Signal: -[2-7][0-9]" | grep -E -o "<List_of_STAs>" | cut -d "|" -f 1
