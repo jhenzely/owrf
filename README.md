@@ -31,10 +31,12 @@ I think it may be also useful also for someone else.
 
 ## To do
 
-### Chk if repeated network is available again --Work in Progress
+### Chk if repeated network is available again --Will be closed soon
 Do it fast, on-the-fly, seamless, without reboot.
 This feature will be implemented soon, testing and optimization is ongoing.
 It will take me some time because I want also to measure amplitue (RSSI) so it will be connected to the repeated network only if measured signal is at least 75dBm for three times in 15 seconds.
+#### Update
+I decided to keep amplitude in -20 - 79dBm range. Lot of wireless cards are able to maintain quite stable connection on this level.
 
 ### Make script more "inteligent"
 Checking wireless config, gathering current values, testing input values.
