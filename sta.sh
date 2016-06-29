@@ -1,7 +1,7 @@
 #!/bin/sh
 sleep 5
 stas=""
-stas=$(uci show wireless | grep "sta" | grep -o \[0-9])
+stas=$(uci show wireless | grep "mode=sta" | grep -o \[0-9])
 sleep 5
 
 kill_stas ()
