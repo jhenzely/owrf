@@ -1,5 +1,4 @@
 ## owrf automated installation
-
 #!/bin/sh
 
 echo "Hello, this script will install owrf"
@@ -20,4 +19,6 @@ stas=$(uci show wireless | grep "sta" | grep -o \[0-9])
 uci set wireless.@wifi-iface[$stas].disabled=0
 uci commit wireless
 
+echo "Do not forget to reboot the machine"
+echo "It is possible to start owrf manualy from '/etc/config/sta.sh', but reboot before first run is strongly recommended"
 rm -f owrf.sh
