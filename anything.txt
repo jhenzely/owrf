@@ -43,6 +43,6 @@ scan=$(iwinfo phy0 scan)
 i_see=$(echo "$scan" | grep -E -o "$names" )
 network=$(echo "$scan" | grep -E "ESSID:|Signal: -[2-7][0-9]" | grep -o "$i_see" | cut -d "|" -f 1)
 sta_id=$(uci show wireless | grep "$network" | grep -E -o "\[([0-9])\]" | grep -o "[[:digit:]]")
-uci set wireless.@wifi-iface[$sta_id].disabled=1; wifi
+uci set wireless.@wifi-iface[$sta_id].disabled=0; wifi
 }
 fail_back
