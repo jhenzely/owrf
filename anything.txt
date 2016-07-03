@@ -30,6 +30,7 @@ done
 
 #!/bin/sh
 
+fail_back () {
 stas=$(uci show wireless | grep "sta" | grep -o \[0-9])
 save_ssids ()
 {
@@ -39,10 +40,9 @@ save_ssids ()
 }
 save_ssids
 scan=$(iwinfo phy0 scan)
-
 i_see=$(echo "$scan" | grep -E -o "$names" )
-
 network=$(echo "$scan" | grep -E "ESSID:|Signal: -[2-7][0-9]" | grep -o "$i_see" | cut -d "|" -f 1)
-uci show wireless | grep "$network" | grep -E -o "\[([0-9])\]" | grep -o "[[:digit:]]"
-
-#echo $network
+sta_id=$(uci show wireless | grep "$network" | grep -E -o "\[([0-9])\]" | grep -o "[[:digit:]]")
+uci set wireless.@wifi-iface[$sta_id].disabled=1; wifi
+}
+fail_back
