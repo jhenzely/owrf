@@ -14,7 +14,7 @@ kill_stas () {
 check_stas () {
 while true ; do
  if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then
-   kill_stas ; wifi
+   kill_stas ; sta_off="1"; wifi
  fi
  sleep 4
 done
