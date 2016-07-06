@@ -39,11 +39,9 @@ uci set wireless.@wifi-iface[$sta_id].disabled=0; wifi ; sta_off="0" ; fi
 }
 
 save_ssids
-
 while true ; do
    if [ $sta_off -eq 0 ] ; then
    check_stas ; elif [ $sta_off -eq 1 ] ; then
    fail_back ; fi
 done
-
 exit 0
