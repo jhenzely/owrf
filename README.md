@@ -2,6 +2,12 @@
 Just download, chmod 755 owrf.sh and add it to rc.local
 Don't forget to report issue.
 
+The script is checking if repeated network is available, if not, it will automatically disable repeated network interface, so You can always see Your repeater.
+
+Interface for repeated network will be started again when repeated network will be in range, so You can move around with no worries ;))
+
+Enjoy !
+
 ### Automatic installation
 Currently unavailable, because GitHub does not support http and wget in OpenWrt does not support https :-/ Curl with SSL support is too heavy for OpenWrt I think.
 <br>Don't worry, I will deploy a web server soon :))
