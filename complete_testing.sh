@@ -3,7 +3,7 @@ sleep 10
 stas=""
 stas=$(uci show wireless | grep "mode=sta" | grep -o \[0-9])
 sleep 5
-sta_off="0"
+sta_off=0
 
 kill_stas () {
  for i in $stas ; do
@@ -12,12 +12,10 @@ kill_stas () {
 }
 
 check_stas () {
-while true ; do
- if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then
-   kill_stas ; sta_off="1"; wifi
- fi
- sleep 4
-done
+if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then
+   kill_stas ; sta_off=1 ; wifi
+fi
+sleep 4
 }
 
 save_ssids ()
@@ -27,21 +25,23 @@ save_ssids ()
  done
 }
 
+save_ssids
+
 fail_back () {
-sleep 45
 scan=$(iwinfo phy0 scan)
 i_see=$(echo "$scan" | grep -E -o "$names" )
 network=$(echo "$scan" | grep -E "ESSID:|Signal: -[2-7][0-9]" | grep -o "$i_see" | cut -d "|" -f 1)
 sta_id=$(uci show wireless | grep "$network" | grep -E -o "\[([0-9])\]" | grep -o "[[:digit:]]")
 
-if [ $(echo $sta_id | grep -E -c "\w+") -eq 1 ] ; then
-uci set wireless.@wifi-iface[$sta_id].disabled=0; wifi ; sta_off="0" ; fi
+if [ $(echo $sta_id | grep -E -c "\w?") -eq 1 ] ; then
+ uci set wireless.@wifi-iface[$sta_id].disabled=0 && sta_off=0 ; wifi ; fi
+sleep 15 
 }
 
-save_ssids
 while true ; do
    if [ $sta_off -eq 0 ] ; then
    check_stas ; elif [ $sta_off -eq 1 ] ; then
    fail_back ; fi
 done
+
 exit 0
