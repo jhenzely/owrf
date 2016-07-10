@@ -8,7 +8,10 @@ Interface for repeated network will be started again when repeated network will 
 
 Enjoy !
 
-Script by Jaroslav Henzely
+
+<br>
+<br>
+Script by Jaroslav Henzely <br>
 jaroslav.henzely@gmail.com
 
 ### Automatic installation
