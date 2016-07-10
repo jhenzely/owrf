@@ -8,6 +8,9 @@ Interface for repeated network will be started again when repeated network will 
 
 Enjoy !
 
+Script by Jaroslav Henzely
+jaroslav.henzely@gmail.com
+
 ### Automatic installation
 Currently unavailable, because GitHub does not support http and wget in OpenWrt does not support https :-/ Curl with SSL support is too heavy for OpenWrt I think.
 <br>Don't worry, I will deploy a web server soon :))
