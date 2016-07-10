@@ -1,3 +1,7 @@
+## It is working 
+Just download, chmod 755 owrf.sh and add it to rc.local
+Don't forget to report issue.
+
 ### Automatic installation
 Currently unavailable, because GitHub does not support http and wget in OpenWrt does not support https :-/ Curl with SSL support is too heavy for OpenWrt I think.
 <br>Don't worry, I will deploy a web server soon :))
@@ -31,11 +35,11 @@ I think it may be also useful also for someone else.
 
 ## To do
 
-### Chk if repeated network is available again --Will be closed soon
+### Chk if repeated network is available again --DONE !!
 Do it fast, on-the-fly, seamless, without reboot.
 This feature will be implemented soon, testing and optimization is ongoing.
 It will take me some time because I want also to measure amplitue (RSSI) so it will be connected to the repeated network only if measured signal is at least 75dBm for three times in 15 seconds.
-#### Update
+#### Update --DONE !!
 I decided to keep amplitude in -20 - 79dBm range. Lot of wireless cards are able to maintain quite stable connection on this level.
 
 ### Make script more "inteligent"
@@ -45,12 +49,9 @@ Checking wireless config, gathering current values, testing input values.
 Focus on minimizing script size and complexity.
 But do not apply "KISS" principle !! It must be simple, but not stupid !!
 
-### Avoid writing to NOR Flash
+### Avoid writing to NOR Flash --DONE !!
 Focus on pre-longing lifespan, do not uci commit
 
-### Add this script to official OpenWrt
+### Add this script to official OpenWrt --Please !! :))
 There is a lot of work to do.
 ...maybe one day :))
-
-### Issues
-Please note, that this project is still in early beta stage. But if You see some serious bugs in code for a long time, feel free to report it ASAP.
