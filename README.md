@@ -1,5 +1,5 @@
 ## It is working 
-Just download, chmod 755 owrf.sh and add it to rc.local
+Just download, chmod 755 owrf.sh and add it to rc.local <br>
 Don't forget to report issue.
 
 The script is checking if repeated network is available, if not, it will automatically disable repeated network interface, so You can always see Your repeater.
