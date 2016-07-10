@@ -1,4 +1,7 @@
 #!/bin/sh
+#Script by Jaroslav Henzely
+#jaroslav.henzely@gmail.com
+
 sleep 10
 stas=""
 stas=$(uci show wireless | grep "mode=sta" | grep -o \[0-9])
@@ -26,7 +29,6 @@ save_ssids ()
 }
 
 save_ssids
-
 fail_back () {
 scan=$(iwinfo phy0 scan)
 i_see=$(echo "$scan" | grep -E -o "$names" )
@@ -43,5 +45,4 @@ while true ; do
    check_stas ; elif [ $sta_off -eq 1 ] ; then
    fail_back ; fi
 done
-
 exit 0
