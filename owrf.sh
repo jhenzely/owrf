@@ -37,7 +37,7 @@ sta_id=$(uci show wireless | grep "$network" | grep -E -o "\[([0-9])\]" | grep -
 
 if [ $(echo $sta_id | grep -E -c "\w?") -eq 1 ] ; then
  uci set wireless.@wifi-iface[$sta_id].disabled=0 && sta_off=0 ; wifi ; fi
-sleep 15 
+sleep 25 
 }
 
 while true ; do
