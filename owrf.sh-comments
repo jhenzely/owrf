@@ -2,21 +2,21 @@
 #Script by Jaroslav Henzely
 #jaroslav.henzely@gmail.com
 
-sleep 10
-stas=""
-stas=$(uci show wireless | grep "mode=sta" | grep -o \[0-9])
-sleep 5
-sta_off=0
+sleep 10 ## Wait for OS to initialize
+stas="" ## Clear the variable
+stas=$(uci show wireless | grep "mode=sta" | grep -o \[0-9]) ## Save all STA networks
+sleep 5 ## One more time
+sta_off=0 ## Default state
 
 kill_stas () {
  for i in $stas ; do
-   uci set wireless.@wifi-iface[$i].disabled=1; wifi
+   uci set wireless.@wifi-iface[$i].disabled=1 ## Disable STA interfaces, turn on wifi
  done
 }
 
 check_stas () {
-if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then
-   kill_stas ; sta_off=1 ; wifi
+if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then ## Repeated network is unavailable
+   kill_stas ; sta_off=1 ; wifi ## Disa
 fi
 sleep 4
 }
