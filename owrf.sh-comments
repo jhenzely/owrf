@@ -10,15 +10,15 @@ sta_off=0 ## Default state
 
 kill_stas () {
  for i in $stas ; do
-   uci set wireless.@wifi-iface[$i].disabled=1 ## Disable STA interfaces, turn on wifi
+   uci set wireless.@wifi-iface[$i].disabled=1 ## Disable STA interfaces
  done
 }
 
 check_stas () {
 if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then ## Repeated network is unavailable
-   kill_stas ; sta_off=1 ; wifi ## Disa
+   kill_stas ; sta_off=1 ; wifi ## Disable STA interfaces, set status, turn on wifi
 fi
-sleep 4
+sleep 4 ## Required delay, decrease 
 }
 
 save_ssids ()
