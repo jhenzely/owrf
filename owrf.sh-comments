@@ -18,30 +18,33 @@ check_stas () {
 if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then ## Repeated network is unavailable
    kill_stas ; sta_off=1 ; wifi ## Disable STA interfaces, set status, turn on wifi
 fi
-sleep 4 ## Required delay, decrease 
+sleep 4 ## Scan delay, decrease for faster response
 }
 
 save_ssids ()
 {
- for i in $stas ; do
+ for i in $stas ; do ## Save STAs to variable
    names=$names""$(uci show wireless | egrep "\.ssid" | grep -i "\[$i\]" | cut -d '=' -f 2)"|"
  done
 }
 
 save_ssids
 fail_back () {
-scan=$(iwinfo phy0 scan)
-i_see=$(echo "$scan" | grep -E -o "$names" )
+scan=$(iwinfo phy0 scan) ## Scan for available wireless networks
+i_see=$(echo "$scan" | grep -E -o "$names" ) ## Filter STAs
+## Filter STAs with desired amplitude between 20 - 70 dBm
 network=$(echo "$scan" | grep -E "ESSID:|Signal: -[2-7][0-9]" | grep -o "$i_see" | cut -d "|" -f 1)
-sta_id=$(uci show wireless | grep "$network" | grep -E -o "\[([0-9])\]" | grep -o "[[:digit:]]")
+## Get STA ID from network name
+sta_id=$(uci show wireless | grep "$network" | grep -E -o "\[([0-9])\]" | grep -o "[[:digit:]]") 
 
 if [ $(echo $sta_id | grep -E -c "\w?") -eq 1 ] ; then
+## Enable scanned STAs
  uci set wireless.@wifi-iface[$sta_id].disabled=0 && sta_off=0 ; wifi ; fi
-sleep 55 
+sleep 55 ## Scan delay, decrease for faster response
 }
 
-while true ; do
-   if [ $sta_off -eq 0 ] ; then
+while true ; do ## Keep going
+   if [ $sta_off -eq 0 ] ; then ## Modes of operation
    check_stas ; elif [ $sta_off -eq 1 ] ; then
    fail_back ; fi
 done
