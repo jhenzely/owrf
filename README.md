@@ -8,8 +8,6 @@ The script is checking if repeated network is available, if not, it will automat
 Interface for repeated network will be started again when repeated network will be in range, so You can move around with no worries ;))
 
 Enjoy !
-
-<br>
 <br>
 Script by Jaroslav Henzely <br>
 jaroslav.henzely@gmail.com
@@ -23,7 +21,7 @@ wget https://raw.githubusercontent.com/jhenzely/owrf/master/owrf.sh && ./owrf.sh
 # owrf
 OpenWRT Wireless Repeater Fix (OWRF): Is workaround for dropping wireless connection when repeated network is unavailable. And also this is my first repository :))
 
-I was inspired by script on the end of page (Link), but I decided to make it more "light".
+I was inspired by script on the end of page (Link), but I decided to make it more "light" and powerful.
 https://wiki.openwrt.org/doc/recipes/ap_sta
 
 Main difference is, that my script is not copy-pasting (possibly) large configs which is wasting NOR Flash lifespan.
@@ -41,9 +39,6 @@ OpenWrt device is simply not accessible and there is no possibility to switch to
 
 ### My simple script
 To avoid this in the future, I wrote simple script. It works for me.
-
-### This repo
-I think it may be also useful also for someone else.
 
 ## To do
 
