@@ -47,23 +47,22 @@ I think it may be also useful also for someone else.
 
 ## To do
 
-### Chk if repeated network is available again --DONE !!
+### Chk if repeated network is available again --DONE
 Do it fast, on-the-fly, seamless, without reboot.
 This feature will be implemented soon, testing and optimization is ongoing.
 It will take me some time because I want also to measure amplitue (RSSI) so it will be connected to the repeated network only if measured signal is at least 75dBm for three times in 15 seconds.
 #### Update --DONE !!
-I decided to keep amplitude in -20 - 79dBm range. Lot of wireless cards are able to maintain quite stable connection on this level.
+I decided to keep amplitude in -20 - 79dBm range. Lot of wireless cards are able to maintain quite stable connection on this level. Decided to not count number of network sight, no problem to implement, I already had working code for this, but it will just make script more complicated. Not worthy.
 
-### Make script more "inteligent"
+### Make script more "inteligent" --DONE
 Checking wireless config, gathering current values, testing input values.
 
 ### Script optimization
 Focus on minimizing script size and complexity.
 But do not apply "KISS" principle !! It must be simple, but not stupid !!
 
-### Avoid writing to NOR Flash --DONE !!
+### Avoid writing to NOR Flash --DONE
 Focus on pre-longing lifespan, do not uci commit
 
-### Add this script to official OpenWrt --Please !! :))
-There is a lot of work to do.
-...maybe one day :))
+### Add this script to official OpenWrt
+Look at the code if Yo don't see any bugs and/or room for improvement
