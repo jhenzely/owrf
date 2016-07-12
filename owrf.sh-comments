@@ -43,8 +43,9 @@ if [ $(echo $sta_id | grep -E -c "\w?") -eq 1 ] ; then
 sleep 55 ## Scan delay, decrease for faster response
 }
 
+## Switch between modes of operation
 while true ; do ## Keep going
-   if [ $sta_off -eq 0 ] ; then ## Modes of operation
+   if [ $sta_off -eq 0 ] ; then
    check_stas ; elif [ $sta_off -eq 1 ] ; then
    fail_back ; fi
 done
