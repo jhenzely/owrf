@@ -1,3 +1,6 @@
+## This script will ONLY disable repeated network
+## You need to reboot device when You will be in covered area again
+
 #!/bin/sh
 sleep 10
 stas=""
@@ -15,5 +18,5 @@ while true ; do
  if [ $(iwinfo | grep -c "ESSID: unknown") -ge 1 ]; then
    kill_stas ; wifi; exit 0
  fi
- sleep 3 
+ sleep 3
 done
