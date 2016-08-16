@@ -1,6 +1,6 @@
 ## owrf automated installation
 #!/bin/sh
-
+distserver="http://boldcore.eu/raw/owrf.sh/"
 echo "Hello, this script will install owrf"
 
 opkg update > /dev/null 2>&1
