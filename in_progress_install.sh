@@ -1,13 +1,12 @@
 ## owrf automated installation
 #!/bin/sh
-distserver="http://boldcore.eu/raw/owrf.sh/"
 echo "Hello, this script will install owrf"
 
-opkg update > /dev/null 2>&1
 echo "Updating package list"
-opkg install iwinfo > /dev/null 2>&1
+opkg update > /dev/null 2>&1
 echo "Installing 'iwinfo'"
-wget https://raw.githubusercontent.com/jhenzely/owrf/master/sta.sh --output-document=/etc/config/sta.sh > /dev/null 2>&1
+opkg install iwinfo > /dev/null 2>&1
+wget http://subory.boldcore.eu/owrf.sh --output-document=/etc/config/sta.sh > /dev/null 2>&1
 echo "Downloading sta.sh"
 sed -i '1i /bin/sh /etc/config/sta.sh & > /dev/null 2>&1' /etc/rc.local
 echo "Adding script to start after boot"
@@ -21,4 +20,4 @@ uci commit wireless
 
 echo "Do not forget to reboot the machine"
 echo "It is possible to start owrf manualy from '/etc/config/sta.sh', but reboot before first run is strongly recommended"
-rm -f owrf.sh
+rm -f install.sh
